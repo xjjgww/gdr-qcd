@@ -3,7 +3,6 @@ DROP TABLE IF EXISTS user;
 CREATE TABLE user (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   username TEXT UNIQUE NOT NULL,
-  ncorrect INTEGER DEFAULT 0,
   permission INTEGER NOT NULL DEFAULT 0,
   rewards_id INTEGER,
   FOREIGN KEY (rewards_id) REFERENCES rewards (id)

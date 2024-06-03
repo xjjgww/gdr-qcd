@@ -1,7 +1,7 @@
 import os
 
 from flask import Flask
-
+from flask_socketio import SocketIO, emit
 
 def create_app(test_config = None):
 
@@ -39,5 +39,5 @@ def create_app(test_config = None):
     from . import mygdr
     app.register_blueprint(mygdr.bp)
     app.add_url_rule('/', endpoint='index') # ?
-    
+
     return app

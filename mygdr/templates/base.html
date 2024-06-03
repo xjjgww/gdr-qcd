@@ -10,11 +10,14 @@
 
 <nav>
   <ul class="nav-left">
-    <li><a href="{{ url_for('gdr.index') }}" class="silent"><i class="fa-solid fa-leaf"></i></a></li>
+    <li><a href="{{ url_for('gdr.index') }}" class="silent"><i class="fa-solid fa-xmark"></i></a></li>
   </ul>
+  <ul>{% block nav_middle %}{% endblock %}</ul>
   <ul class="nav-right">
-    <li><a class="silent action">
-      <i class="fa-solid fa-magnifying-glass" id="i_search"></i></a></li>
+    <!-- <li><p>{{ g.user["username"] if g.user else "" }}</p></li> -->
+    <li><p> </p></li>
+    <!-- <li><a class="silent action"> -->
+    <!-- <i class="fa-solid fa-magnifying-glass" id="i_search"></i></a></li> -->
   </ul>
 </nav>
 <hr>

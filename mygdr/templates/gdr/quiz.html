@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block nav_middle %}
+  <p><span class="confirm">{{ session["ncorr"] }}</span> / 3</p>
+{% endblock %}
+
+{% block content %}
+  <form method="post" class="column-flex space-5">
+    <div class="textarea">
+      {{ question["question"] }}
+    </div>
+    <!-- <hr class="secdiv"> -->
+    <div class="column-flex space-2">
+      <button type="submit" name="answer" value="0" class="action highlight">{{ question["option_a"] }}</button>
+      <button type="submit" name="answer" value="1" class="action highlight">{{ question["option_b"] }}</button>
+      <button type="submit" name="answer" value="2" class="action highlight">{{ question["option_c"] }}</button>
+    </div>
+    <!-- <div class="section">
+         <button type="submit" class="action solid">Check</button>
+         </div> -->
+  </form>
+{% endblock %}
