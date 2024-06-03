@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% if g.user %}
+    <div class="section">
+      <p> Bonjour <span class="highlight">{{ g.user["username"] }}</span> !</p>
+    </div>
+    <div class="section column-flex space">
+      <button type="button" class="action solid">Start</button>
+      <button type="button" class="action" onclick='window.location.href = "{{ url_for('gdr.logout') }}"'>Logout</button>
+    </div>
+    <hr class="secdiv">
+  {% else %}
+    <form method="post" class="column-flex">
+      <label for="username">Name</label>
+      <input type="text" name="username" id="username" required>
+      <div class="section">
+        <button type="submit" class="action solid highlight">Ok</button>
+      </div>
+    </form>
+  {% endif %}
+{% endblock %}
