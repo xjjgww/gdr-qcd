@@ -1,7 +1,6 @@
 import os
 
 from flask import Flask
-from flask_socketio import SocketIO, emit
 
 def create_app(test_config = None):
 
