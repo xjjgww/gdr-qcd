@@ -6,16 +6,24 @@
       <p> Bonjour <span class="highlight">{{ g.user["username"] }}</span> !</p>
     </div>
     <div class="section column-flex space-3">
-      <button type="button" class="action solid" onclick='window.location.href = "{{ url_for('gdr.quiz') }}"'>{{ "Check prize" if reward else "Start" }}</button>
-      <button type="button" class="action" onclick='window.location.href = "{{ url_for('gdr.logout') }}"'>Logout</button>
+      <button type="button" class="solid confirm" onclick='window.location.href = "{{ url_for('gdr.quiz') }}"'>{{ "Check prize" if reward else "Start" }}</button>
+      <button type="button" class="regular highlight" onclick='window.location.href = "{{ url_for('gdr.logout') }}"'>Logout</button>
     </div>
   {% else %}
-    <form method="post" class="column-flex">
-      <label for="username">Name</label>
-      <input type="text" name="username" id="username" required>
-      <div class="section">
-        <button type="submit" class="action solid highlight">Ok</button>
+    <div class="section">
+      <p class="dim">If you are not a registered student of GDR-QCD summer school, please <span class="highlight">try as guest</span>.</p>
+    </div>
+    <hr class="secdiv">
+    <form method="post" class="column-flex space-4">
+      <div class="column-flex space-1">
+        <label for="username">Name</label>
+        <input type="text" name="username" id="username" required>
+      </div>
+      <div class="column-flex space-2">
+        <button type="submit" class="solid confirm">Ok</button>
+        <button type="button" class="regular highlight" onclick='window.location.href = "{{ url_for('gdr.redirect_guest') }}"'>Try as guest</button>
       </div>
     </form>
+    
   {% endif %}
 {% endblock %}

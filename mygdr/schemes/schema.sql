@@ -5,6 +5,7 @@ CREATE TABLE user (
   username TEXT UNIQUE NOT NULL,
   permission INTEGER NOT NULL DEFAULT 0
 );
+INSERT INTO user (username) VALUES ('Guest');
 
 DROP TABLE IF EXISTS rewards;
 
@@ -26,5 +27,4 @@ CREATE TABLE questions (
   option_c TEXT,
   answer INTEGER
 );
-
 

@@ -9,7 +9,12 @@
 {% block content %}
   {% if reward %}
     <div class="column-flex space-5 text-center">
-      <p><span class="confirm">Congrats!</span> You got <span class="highlight">{{ reward["title"] }}</span>:</p>
+      <div class="column-flex space-2">
+        <p><span class="confirm">Congrats!</span> You got <span class="highlight">{{ reward["title"] }}</span>:</p>
+        {% if g.user["id"] == 1 %}
+          <p class="dim">but sorry no prize for guest...</p>
+        {% endif %}
+      </div>
       <div><img src="{{ url_for('static', filename=reward["path_to"]) }}"></img></div>
     </div>
   {% else %} 
@@ -19,12 +24,12 @@
       </div>
       <!-- <hr class="secdiv"> -->
       <div class="column-flex space-2">
-        <button type="submit" name="answer" value="0" class="action highlight">{{ question["option_a"] }}</button>
-        <button type="submit" name="answer" value="1" class="action highlight">{{ question["option_b"] }}</button>
-        <button type="submit" name="answer" value="2" class="action highlight">{{ question["option_c"] }}</button>
+        <button type="submit" name="answer" value="0" class="regular highlight">{{ question["option_a"] }}</button>
+        <button type="submit" name="answer" value="1" class="regular highlight">{{ question["option_b"] }}</button>
+        <button type="submit" name="answer" value="2" class="regular highlight">{{ question["option_c"] }}</button>
       </div>
       <!-- <div class="section">
-           <button type="submit" class="action solid">Check</button>
+           <button type="submit" class="solid confirm">Check</button>
            </div> -->
     </form>
   {% endif %}

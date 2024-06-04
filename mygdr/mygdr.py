@@ -76,11 +76,27 @@ def index():
     reward = get_ones_reward()
     return render_template('gdr/index.html', reward=reward)
 
+@bp.route('/redirect_guest')
+def redirect_guest():
+    error = None
+    
+    if error is not None:
+        flash(error)
+    else:
+        session.clear()
+        session['user_id'] = 1
+        session["used_questions"] = []
+        session['ncorr'] = 0
+
+    return redirect(url_for('gdr.quiz'))
+
+    
 def get_list_by_col(items, col):
     results = []
     for i in items:
         results.append(i[col])
     return results
+
 
 @bp.route('/quiz', methods=('GET', 'POST'))
 @login_required
@@ -115,10 +131,11 @@ def quiz():
             ).fetchall()
 
             reward = random.choice(rewards)
-            db.execute(
-                'UPDATE rewards SET assign_to = ? WHERE id = ?', (g.user["id"], reward["id"])
-            )
-            db.commit()
+            if g.user["id"] != 1:
+                db.execute(
+                    'UPDATE rewards SET assign_to = ? WHERE id = ?', (g.user["id"], reward["id"])
+                )
+                db.commit()
 
     # !! add one tag to identify all rewards are gone
     return render_template('gdr/quiz.html', question=question, reward=reward)
