@@ -4,7 +4,7 @@ from flask import Flask
 
 def create_app(test_config = None):
 
-    UPLOAD_FOLDER = 'mygdr/static/reward'
+    UPLOAD_FOLDER = 'mygdr/static/rewards'
     FROM_STATIC = 'mygdr/static/'
     
     # create and configure the app

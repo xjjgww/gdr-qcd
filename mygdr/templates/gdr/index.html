@@ -6,10 +6,9 @@
       <p> Bonjour <span class="highlight">{{ g.user["username"] }}</span> !</p>
     </div>
     <div class="section column-flex space-3">
-      <button type="button" class="action solid" onclick='window.location.href = "{{ url_for('gdr.quiz') }}"'>Start</button>
+      <button type="button" class="action solid" onclick='window.location.href = "{{ url_for('gdr.quiz') }}"'>{{ "Check prize" if reward else "Start" }}</button>
       <button type="button" class="action" onclick='window.location.href = "{{ url_for('gdr.logout') }}"'>Logout</button>
     </div>
-    <hr class="secdiv">
   {% else %}
     <form method="post" class="column-flex">
       <label for="username">Name</label>

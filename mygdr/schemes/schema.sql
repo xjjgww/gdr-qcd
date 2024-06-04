@@ -3,9 +3,7 @@ DROP TABLE IF EXISTS user;
 CREATE TABLE user (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   username TEXT UNIQUE NOT NULL,
-  permission INTEGER NOT NULL DEFAULT 0,
-  rewards_id INTEGER,
-  FOREIGN KEY (rewards_id) REFERENCES rewards (id)
+  permission INTEGER NOT NULL DEFAULT 0
 );
 
 DROP TABLE IF EXISTS rewards;
@@ -13,11 +11,10 @@ DROP TABLE IF EXISTS rewards;
 CREATE TABLE rewards (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   title TEXT,
-  path_to TEXT UNIQUE,
+  path_to TEXT,
   assign_to INTEGER,
   FOREIGN KEY (assign_to) REFERENCES user (id)
 );
-
 
 DROP TABLE IF EXISTS questions;
 

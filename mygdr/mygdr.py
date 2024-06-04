@@ -34,7 +34,14 @@ def shuffle_questions(questions):
             results.append(q)
 
     return results
-        
+
+def get_ones_reward():
+    reward = None
+    if g.user:
+        reward = get_db().execute(
+            'SELECT * FROM rewards WHERE assign_to = ?', (g.user["id"],)
+        ).fetchone()
+    return reward
 
 @bp.route('/', methods=('GET', 'POST'))
 def index():
@@ -66,7 +73,8 @@ def index():
 
     session["used_questions"] = []
     session['ncorr'] = 0
-    return render_template('gdr/index.html')
+    reward = get_ones_reward()
+    return render_template('gdr/index.html', reward=reward)
 
 def get_list_by_col(items, col):
     results = []
@@ -88,11 +96,6 @@ def quiz():
         
         if answer==question["answer"]: session['ncorr'] += 1
 
-        # if session['ncorr'] == 3:
-        #     db.execute(
-        #         'UPDATE user SET rewards_id = ? WHERE username = ?', (rewards_id, g.user["username"])
-        #     )
-
         return redirect(url_for('gdr.quiz'))
         
     questions = db.execute(
@@ -104,7 +107,21 @@ def quiz():
     session['question_id'] = question["id"]
     session["used_questions"].append(question["id"])
 
-    return render_template('gdr/quiz.html', question=question)
+    reward = get_ones_reward()
+    if not reward:
+        if session['ncorr'] >= 3:
+            rewards = db.execute(
+                'SELECT * FROM rewards WHERE assign_to IS ?', (None,)
+            ).fetchall()
+
+            reward = random.choice(rewards)
+            db.execute(
+                'UPDATE rewards SET assign_to = ? WHERE id = ?', (g.user["id"], reward["id"])
+            )
+            db.commit()
+
+    # !! add one tag to identify all rewards are gone
+    return render_template('gdr/quiz.html', question=question, reward=reward)
 
 @bp.before_app_request
 def load_logged_in_user():

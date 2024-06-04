@@ -44,14 +44,24 @@ def get_data_from_json(str_f):
         return l["data"]
 
 def init_db_questions():
-    questions = get_data_from_json("mygdr/questions.json")
-    print(questions)
     db = get_db()
+
+    questions = get_data_from_json("mygdr/static/questions.json")
+    print(questions)
     for q in questions:
         db.execute(
             'INSERT INTO questions (question, option_a, option_b, option_c, answer)'
             ' VALUES (?, ?, ?, ?, ?)',
             (q['question'], q['options'][0], q['options'][1], q['options'][2], q['answer'])
+        )
+
+    rewards = get_data_from_json("mygdr/static/rewards.json")
+    print(rewards)
+    for q in rewards:
+        db.execute(
+            'INSERT INTO rewards (title, path_to)'
+            ' VALUES (?, ?)',
+            (q['title'], q['path_to'])
         )
 
     db.commit()
