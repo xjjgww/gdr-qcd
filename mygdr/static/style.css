@@ -9,7 +9,7 @@
     --color-default: #F0F0F0;
     --color-darktext: #777777;
     --color-lighttext: #4B4B4B;
-    --color-danger: #BF5B45;
+    --color-danger: #FF4B4B;
     
     --size-rem: 19px;
     --fs-1: .75rem;
@@ -126,6 +126,8 @@ div.highlight h2, div.highlight p, div.highlight span,
 h2.highlight, p.highlight, span.highlight { color: var(--color-highlight); }
 div.confirm h2, div.confirm p, div.confirm span,
 h2.confirm, p.confirm, span.confirm { color: var(--color-confirm); }
+div.danger h2, div.danger p, div.danger span,
+h2.danger, p.danger, span.danger { color: var(--color-danger); }
 
 span { font-size: 1em; }
 h1 { font-size: 1rem; }

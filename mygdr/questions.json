@@ -10,7 +10,7 @@
             "answer" : 1
         },
         {
-            "question" : "Which one is a good variable to separate prompt and nonprompt components of D mesons or J/&psi;?",
+            "question" : "Which one is a good variable to separate prompt and nonprompt components of D mesons?",
             "options" : [ "Invariant mass",
                           "Transverse momentum",
                           "Distance of Closest Approach"
@@ -18,7 +18,7 @@
             "answer" : 2
         },
         {
-            "question" : "Which one is only observed in heavy-ion A-A xcollisions so far?",
+            "question" : "Which one is only observed in heavy-ion A-A collisions so far?",
             "options" : [ "Strong suppression of high-pT particles",
                           "Dead cone effect",
                           "Azimuthal anisotropy of heavy-flavor hadrons"
