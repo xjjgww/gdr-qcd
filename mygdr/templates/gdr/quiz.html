@@ -19,14 +19,12 @@
     </div>
   {% else %} 
     <form method="post" class="column-flex space-5">
-      <div class="textarea">
-        {{ question["question"] }}
-      </div>
+      <div class="textarea" id="question">{{ question["question"] | safe }}</div>
       <!-- <hr class="secdiv"> -->
       <div class="column-flex space-2">
-        <button type="submit" name="answer" value="0" class="regular highlight">{{ question["option_a"] }}</button>
-        <button type="submit" name="answer" value="1" class="regular highlight">{{ question["option_b"] }}</button>
-        <button type="submit" name="answer" value="2" class="regular highlight">{{ question["option_c"] }}</button>
+        <button type="submit" name="answer" value="0" class="regular highlight">{{ question["option_a"] | safe }}</button>
+        <button type="submit" name="answer" value="1" class="regular highlight">{{ question["option_b"] | safe }}</button>
+        <button type="submit" name="answer" value="2" class="regular highlight">{{ question["option_c"] | safe }}</button>
       </div>
       <!-- <div class="section">
            <button type="submit" class="solid confirm">Check</button>

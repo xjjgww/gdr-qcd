@@ -19,17 +19,49 @@
         },
         {
             "question" : "Which one is only observed in heavy-ion A-A collisions so far?",
-            "options" : [ "Strong suppression of high-pT particles",
+            "options" : [ "Strong suppression of high-p<sub>T</sub> particles",
                           "Dead cone effect",
                           "Azimuthal anisotropy of heavy-flavor hadrons"
                         ],
             "answer" : 0
         },
         {
-            "question" : "Which one is not an advantage of measuring fully reconstructed heavy-flavor hadrons compared to measuring decayed leptons?",
+            "question" : "Which one is NOT an advantage of measuring fully reconstructed heavy-flavor hadrons compared to measuring decayed leptons?",
             "options" : [ "Better statistics",
                           "Better control of kinematics of the heavy-flavor hadrons",
                           "Being able to distinguish the type of the heavy-flavor hadrons"
+                        ],
+            "answer" : 0
+        },
+        {
+            "question" : "To which effect is the nuclear modification factor of D mesons at low p<sub>T</sub> NOT sensitive in A-A collisions?",
+            "options" : [ "Nuclear PDF",
+                          "Collective flow",
+                          "Radiative energy loss"
+                        ],
+            "answer" : 2
+        },
+        {
+            "question" : "Which result is found to be significantly different between LHC and RHIC?",
+            "options" : [ "Y(1S) nuclear modification factors at same Npart",
+                          "p<sub>T</sub>-integrated J/&psi; nuclear modification factors at large N<sub>part</sub>",
+                          "D<sup>0</sup> meson v<sub>2</sub> vs p<sub>T</sub>"
+                        ],
+            "answer" : 1
+        },
+        {
+            "question" : "Which one is NOT a good variable to classify a heavy-flavor hadron signal from combinatorial backgrounds?",
+            "options" : [ "Decay length",
+                          "Secondary vertex probability",
+                          "Azimuthal angle"
+                        ],
+            "answer" : 2
+        },
+        {
+            "question" : "Which one will NOT cause different modifications on yields of J/&psi; and &psi;(2S) in pA collisions?",
+            "options" : [ "Nuclear PDF",
+                          "Comover interactions",
+                          "Recombinations"
                         ],
             "answer" : 0
         }

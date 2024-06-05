@@ -47,7 +47,7 @@ def init_db_questions():
     db = get_db()
 
     questions = get_data_from_json("mygdr/static/questions.json")
-    print(questions)
+    # print(questions)
     for q in questions:
         db.execute(
             'INSERT INTO questions (question, option_a, option_b, option_c, answer)'
@@ -56,7 +56,7 @@ def init_db_questions():
         )
 
     rewards = get_data_from_json("mygdr/static/rewards.json")
-    print(rewards)
+    # print(rewards)
     for q in rewards:
         db.execute(
             'INSERT INTO rewards (title, path_to)'
